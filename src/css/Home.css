@@ -1,0 +1,28 @@
+.home-root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Hurricane_Isabel_from_ISS.jpg/1920px-Hurricane_Isabel_from_ISS.jpg");
+    background-color: white;
+}
+
+.form-root {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(210, 210, 210);
+    padding: 50px;
+}
+
+.region-select {
+    margin-top: 15px;
+}
+
+.year-select {
+    margin-bottom: 15px;
+}
