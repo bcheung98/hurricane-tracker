@@ -1,12 +1,19 @@
 import './App.css';
+import {
+    HashRouter as Router,
+    Route,
+    Routes
+} from "react-router-dom";
 
-function App() {
+import Home from './components/Home';
+
+const App = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                Test
-            </header>
-        </div>
+        <Router>
+            <Routes>
+                <Route exact path="/" element={<Home />} />
+            </Routes>
+        </Router>
     );
 }
 
