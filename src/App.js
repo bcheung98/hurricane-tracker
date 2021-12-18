@@ -1,19 +1,12 @@
 import './App.css';
-import {
-    HashRouter as Router,
-    Route,
-    Routes
-} from "react-router-dom";
 
-import Home from './components/Home';
+import TrackViewer from './components/TrackViewer';
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-            </Routes>
-        </Router>
+        <div>
+            <TrackViewer />
+        </div>
     );
 }
 
