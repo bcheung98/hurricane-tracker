@@ -49,7 +49,7 @@ const TrackViewer = () => {
                 <AppBar sx={{ display: "flex", flexDirection: "row" }} position="static">
                     <Toolbar>
                         <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
-                            Storm Tracker
+                            Hurricane Tracker
                         </Typography>
                         <form onSubmit={handleSubmit}>
                             <FormControl sx={{ marginLeft: "30px", marginTop: "9px" }}>
