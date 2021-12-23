@@ -40,7 +40,7 @@ const TrackViewer = () => {
     const [frameSrc, setFrameSrc] = React.useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFrameSrc(`./tracks/hurricane_tracks_${region}_${year}.html`);
+        setFrameSrc(`./hurricane-tracker/tracks/hurricane_tracks_${region}_${year}.html`);
     }
 
     return (
@@ -77,7 +77,7 @@ const TrackViewer = () => {
                     </Toolbar>
                 </AppBar>
             </Box>
-            <iframe src={frameSrc} title="frame" width={"100%"}></iframe>
+            {frameSrc === "" ? <Typography variant="h2" component="div" sx={{ color: "white", textAlign: "center", marginTop: "120px" }}>Select the region and year, then click "Go" to view the storm paths!</Typography> : <iframe src={frameSrc} title="frame" width={"100%"} sandbox="allow-scripts"></iframe>}
         </React.Fragment>
     );
 }
