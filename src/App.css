@@ -1,3 +1,8 @@
 body {
     background-color: rgb(32, 32, 32);
 }
+
+iframe {
+    height: 92.9vh; 
+    padding: 0;
+}

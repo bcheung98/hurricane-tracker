@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Button, Box, InputBase, MenuItem, FormControlLabel, FormControl, Select, Radio, RadioGroup, AppBar, Toolbar, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
@@ -38,9 +37,10 @@ const TrackViewer = () => {
         setRegion(e.target.value);
     }
 
+    const [frameSrc, setFrameSrc] = React.useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(region, year);
+        setFrameSrc(`./tracks/hurricane_tracks_${region}_${year}.html`);
     }
 
     return (
@@ -59,7 +59,6 @@ const TrackViewer = () => {
                                 </RadioGroup>
                             </FormControl>
                             <FormControl sx={{ m: 1, width: "100px" }} variant="standard">
-
                                 <Select
                                     value={year}
                                     onChange={handleYearChange}
@@ -78,6 +77,7 @@ const TrackViewer = () => {
                     </Toolbar>
                 </AppBar>
             </Box>
+            <iframe src={frameSrc} title="frame" width={"100%"}></iframe>
         </React.Fragment>
     );
 }
