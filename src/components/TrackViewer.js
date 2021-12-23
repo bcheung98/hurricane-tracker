@@ -40,7 +40,7 @@ const TrackViewer = () => {
     const [frameSrc, setFrameSrc] = React.useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFrameSrc(`./hurricane-tracker/tracks/hurricane_tracks_${region}_${year}.html`);
+        setFrameSrc(`./tracks/hurricane_tracks_${region}_${year}.html`);
     }
 
     return (
