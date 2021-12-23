@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hurricane-tracker/static/css/main.a3c07420.css",
+    "main.js": "/hurricane-tracker/static/js/main.462cc4d1.js",
+    "index.html": "/hurricane-tracker/index.html",
+    "main.a3c07420.css.map": "/hurricane-tracker/static/css/main.a3c07420.css.map",
+    "main.462cc4d1.js.map": "/hurricane-tracker/static/js/main.462cc4d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a3c07420.css",
+    "static/js/main.462cc4d1.js"
+  ]
+}
