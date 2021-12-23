@@ -41,6 +41,9 @@ const TrackViewer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setFrameSrc(`./tracks/hurricane_tracks_${region}_${year}.html`);
+        // DEPLOYMENT PATH: `./tracks/hurricane_tracks_${region}_${year}.html`
+        // DEV PATH: `./hurricane-tracker/tracks/hurricane_tracks_${region}_${year}.html`
+        // I don't know why I have to change the path when I open the site in localhost.
     }
 
     return (
