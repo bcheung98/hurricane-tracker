@@ -1,6 +1,9 @@
 import React from "react";
-import { Button, Box, InputBase, MenuItem, FormControlLabel, FormControl, Select, Radio, RadioGroup, AppBar, Toolbar, Typography } from "@mui/material";
+import { Button, Box, InputBase, MenuItem, FormControlLabel, FormControl, Select, Radio, RadioGroup, AppBar, Toolbar, Typography, Dialog } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { Help } from '@mui/icons-material';
+
+import Legend from "./Legend";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -46,6 +49,14 @@ const TrackViewer = () => {
         // I don't know why I have to change the path when I open the site in localhost.
     }
 
+    const [open, setOpen] = React.useState(false);
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return (
         <React.Fragment>
             <Box sx={{ flexGrow: 1 }}>
@@ -78,9 +89,17 @@ const TrackViewer = () => {
                             <Button sx={{ marginTop: "12px", marginLeft: "10px" }} type="submit" variant="contained" color="secondary">Go</Button>
                         </form>
                     </Toolbar>
+                    <Help sx={{ marginTop: "20px", cursor: "pointer" }} onClick={() => handleClickOpen()} />
                 </AppBar>
             </Box>
             {frameSrc === "" ? <Typography variant="h2" component="div" sx={{ color: "white", textAlign: "center", marginTop: "120px" }}>Select the region and year, then click "Go" to view the storm paths!</Typography> : <iframe src={frameSrc} title="frame" width={"100%"} sandbox="allow-scripts"></iframe>}
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                sx={{ height: "100vh" }}
+            >
+                <Legend />
+            </Dialog>
         </React.Fragment>
     );
 }

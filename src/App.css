@@ -6,3 +6,15 @@ iframe {
     height: 92.9vh; 
     padding: 0;
 }
+
+.legend-color {
+    margin-right: 11px;
+}
+
+.legend-text-sshws {
+    margin-left: 3px;
+}
+
+.legend-text-storm-type {
+    margin-left: -18px;
+}
