@@ -12,7 +12,7 @@ def create_hurricane_dict(file_name):
     hur_dict = {}
     for row in df.index:
         dates = df.iloc[row, 0]
-        if dates[0:2] in ["AL", "CP", "EP"]:
+        if dates[0:2] in ["AL", "CP", "EP", "WP"]:
             year = dates[-4:]
             if year not in hur_dict:
                 hur_dict[year] = []
@@ -23,7 +23,9 @@ def create_hurricane_dict(file_name):
 
 def hurricane_tracks(region, hur_dict, year):
 
-    if region == "pacific":
+    if region == "westpacific":
+        map_loc = [35.5, -210.5]
+    if region == "eastpacific":
         map_loc = [35.5, -145.5]
     if region == "atlantic":
         map_loc = [40.5, -50.5]
@@ -57,7 +59,7 @@ def hurricane_tracks(region, hur_dict, year):
             # Latitude and longitude
             lat = float(storm.loc[row, "Latitude"][:-1].strip())
             if storm.loc[row, "Longitude"].strip()[-1] == "E":
-                if float(storm.loc[row, "Longitude"].strip()[:-1]) > 100:
+                if float(storm.loc[row, "Longitude"].strip()[:-1]) > 70:
                     lng = (360-float(storm.loc[row, "Longitude"].strip()[:-1])) * -1
                 else:
                     lng = float(storm.loc[row, "Longitude"].strip()[:-1])
@@ -89,8 +91,8 @@ def hurricane_tracks(region, hur_dict, year):
             if speed >= 137:  # C5
                 dot_color = "#FF6060"
 
-            # Pressure data was marked as "-999" when it wasn't available
-            if pressure == -999:
+            # Pressure data was marked as "-999" or "0" when it wasn't available
+            if pressure == -999 or pressure == 0:
                 pressure_str = "No pressure data"
             else:
                 pressure_str = str(pressure) + " mbar"
@@ -144,7 +146,7 @@ def check_input(user_input):
     
     if len(user_input) < 2 or len(user_input) > 3:
         return False
-    if user_input[0].lower() not in ["a", "p"]:
+    if user_input[0].lower() not in ["a", "ep", "wp"]:
         return False
     if len(user_input) == 3:
         try:
@@ -158,10 +160,6 @@ def check_input(user_input):
 
 def main():
 
-    # Creates the databases
-    atl_dict = create_hurricane_dict("atlantic.csv")
-    pac_dict = create_hurricane_dict("pacific.csv")
-
     # Gets user input
     valid = False
     while not valid:
@@ -170,9 +168,11 @@ def main():
         if not valid:
             print("Invalid input")
     if user_input[0].lower() == "a":
-        hur_dict, region = atl_dict, "atlantic"
-    if user_input[0].lower() == "p":
-        hur_dict, region = pac_dict, "pacific"
+        hur_dict, region = create_hurricane_dict("atlantic.csv"), "atlantic"
+    if user_input[0].lower() == "ep":
+        hur_dict, region = create_hurricane_dict("eastpacific.csv"), "eastpacific"
+    if user_input[0].lower() == "wp":
+        hur_dict, region = create_hurricane_dict("westpacific.csv"), "westpacific"
 
     start = time()
     if len(user_input) == 2:
