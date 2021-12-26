@@ -36,7 +36,7 @@ const TrackViewer = () => {
     };
 
     const [region, setRegion] = React.useState("atlantic");
-    const handleRadioChange = (e) => {
+    const handleRegionChange = (e) => {
         setRegion(e.target.value);
     }
 
@@ -67,9 +67,10 @@ const TrackViewer = () => {
                         </Typography>
                         <form onSubmit={handleSubmit}>
                             <FormControl sx={{ marginLeft: "30px", marginTop: "9px" }}>
-                                <RadioGroup row defaultValue="atlantic" onChange={handleRadioChange}>
+                                <RadioGroup row defaultValue="atlantic" onChange={handleRegionChange}>
                                     <FormControlLabel value="atlantic" control={<Radio color="default" />} label="Atlantic" />
                                     <FormControlLabel value="eastpacific" control={<Radio color="default" />} label="East Pacific" />
+                                    <FormControlLabel value="westpacific" control={<Radio color="default" />} label="West Pacific" />
                                 </RadioGroup>
                             </FormControl>
                             <FormControl sx={{ m: 1, width: "100px" }} variant="standard">
