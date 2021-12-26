@@ -59,7 +59,7 @@ def hurricane_tracks(region, hur_dict, year):
             # Latitude and longitude
             lat = float(storm.loc[row, "Latitude"][:-1].strip())
             if storm.loc[row, "Longitude"].strip()[-1] == "E":
-                if float(storm.loc[row, "Longitude"].strip()[:-1]) > 70:
+                if float(storm.loc[row, "Longitude"].strip()[:-1]) > 50:
                     lng = (360-float(storm.loc[row, "Longitude"].strip()[:-1])) * -1
                 else:
                     lng = float(storm.loc[row, "Longitude"].strip()[:-1])
