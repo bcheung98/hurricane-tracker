@@ -69,7 +69,7 @@ const TrackViewer = () => {
                             <FormControl sx={{ marginLeft: "30px", marginTop: "9px" }}>
                                 <RadioGroup row defaultValue="atlantic" onChange={handleRadioChange}>
                                     <FormControlLabel value="atlantic" control={<Radio color="default" />} label="Atlantic" />
-                                    <FormControlLabel value="pacific" control={<Radio color="default" />} label="Pacific" />
+                                    <FormControlLabel value="eastpacific" control={<Radio color="default" />} label="East Pacific" />
                                 </RadioGroup>
                             </FormControl>
                             <FormControl sx={{ m: 1, width: "100px" }} variant="standard">
