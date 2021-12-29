@@ -3,6 +3,7 @@ import { Button, Box, InputBase, MenuItem, FormControl, Select, AppBar, Toolbar,
 import { styled } from "@mui/material/styles";
 import { Help } from '@mui/icons-material';
 
+import LandingPage from "./LandingPage";
 import Legend from "./Legend";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
@@ -111,7 +112,7 @@ const TrackViewer = () => {
                     <Help sx={{ marginTop: "20px", cursor: "pointer" }} onClick={() => handleClickOpen()} />
                 </AppBar>
             </Box>
-            {frameSrc === "" ? <Typography variant="h2" component="div" sx={{ color: "white", textAlign: "center", marginTop: "120px" }}>Select the region and year, then click "Go" to view the storm paths!</Typography> : <iframe src={frameSrc} title="frame" width={"100%"} sandbox="allow-scripts"></iframe>}
+            {frameSrc === "" ? <LandingPage /> : <iframe src={frameSrc} title="frame" width={"100%"} sandbox="allow-scripts"></iframe>}
             <Dialog
                 open={open}
                 onClose={handleClose}
