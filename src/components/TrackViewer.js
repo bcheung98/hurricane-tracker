@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Box, InputBase, MenuItem, FormControlLabel, FormControl, Select, Radio, RadioGroup, AppBar, Toolbar, Typography, Dialog } from "@mui/material";
+import { Button, Box, InputBase, MenuItem, FormControl, Select, AppBar, Toolbar, Typography, Dialog } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Help } from '@mui/icons-material';
 
@@ -35,9 +35,12 @@ const TrackViewer = () => {
         setYear(e.target.value);
     };
 
-    const [region, setRegion] = React.useState("atlantic");
+    const [region, setRegion] = React.useState("");
     const handleRegionChange = (e) => {
         setRegion(e.target.value);
+        if (e.target.value === "westpacific") {
+            setYear("");
+        }
     }
 
     const [frameSrc, setFrameSrc] = React.useState("");
@@ -66,12 +69,27 @@ const TrackViewer = () => {
                             Hurricane Tracker
                         </Typography>
                         <form onSubmit={handleSubmit}>
-                            <FormControl sx={{ marginLeft: "30px", marginTop: "9px" }}>
-                                <RadioGroup row defaultValue="atlantic" onChange={handleRegionChange}>
-                                    <FormControlLabel value="atlantic" control={<Radio color="default" />} label="Atlantic" />
-                                    <FormControlLabel value="eastpacific" control={<Radio color="default" />} label="East Pacific" />
-                                    <FormControlLabel value="westpacific" control={<Radio color="default" />} label="West Pacific" />
-                                </RadioGroup>
+                            <FormControl sx={{ m: 1, width: "150px", marginLeft: "30px", marginTop: "8px" }} variant="standard">
+                                <Select
+                                    value={region}
+                                    onChange={handleRegionChange}
+                                    displayEmpty
+                                    input={<BootstrapInput />}
+                                    required
+                                >
+                                    <MenuItem value="">
+                                        <em>Region</em>
+                                    </MenuItem>
+                                    <MenuItem value="atlantic">
+                                        Atlantic
+                                    </MenuItem>
+                                    <MenuItem value="eastpacific">
+                                        East Pacific
+                                    </MenuItem>
+                                    <MenuItem value="westpacific">
+                                        West Pacific
+                                    </MenuItem>
+                                </Select>
                             </FormControl>
                             <FormControl sx={{ m: 1, width: "100px" }} variant="standard">
                                 <Select
@@ -84,7 +102,7 @@ const TrackViewer = () => {
                                     <MenuItem value="">
                                         <em>Year</em>
                                     </MenuItem>
-                                    {range(1990, 2021, 1).reverse().map(year => <MenuItem key={year} value={year}>{year}</MenuItem>)}
+                                    {region === "westpacific" ? range(1996, 2021, 1).reverse().map(year => <MenuItem key={year} value={year}>{year}</MenuItem>) : range(1990, 2021, 1).reverse().map(year => <MenuItem key={year} value={year}>{year}</MenuItem>)}
                                 </Select>
                             </FormControl>
                             <Button sx={{ marginTop: "12px", marginLeft: "10px" }} type="submit" variant="contained" color="secondary">Go</Button>
