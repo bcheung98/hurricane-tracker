@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hurricane-tracker/static/css/main.1cbaf46b.css",
-    "main.js": "/hurricane-tracker/static/js/main.6f423456.js",
+    "main.css": "/hurricane-tracker/static/css/main.ab725559.css",
+    "main.js": "/hurricane-tracker/static/js/main.40ce4173.js",
     "index.html": "/hurricane-tracker/index.html",
-    "main.1cbaf46b.css.map": "/hurricane-tracker/static/css/main.1cbaf46b.css.map",
-    "main.6f423456.js.map": "/hurricane-tracker/static/js/main.6f423456.js.map"
+    "main.ab725559.css.map": "/hurricane-tracker/static/css/main.ab725559.css.map",
+    "main.40ce4173.js.map": "/hurricane-tracker/static/js/main.40ce4173.js.map"
   },
   "entrypoints": [
-    "static/css/main.1cbaf46b.css",
-    "static/js/main.6f423456.js"
+    "static/css/main.ab725559.css",
+    "static/js/main.40ce4173.js"
   ]
 }
