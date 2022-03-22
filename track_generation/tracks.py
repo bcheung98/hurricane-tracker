@@ -31,7 +31,10 @@ def hurricane_tracks(region, hur_dict, year):
         map_loc = [40.5, -50.5]
  
     m = folium.Map(location=map_loc, tiles=None, zoom_start=4)
-    folium.TileLayer("cartodbpositron", name="Map").add_to(m)
+    folium.TileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                     attr="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+                     , name="Map (Dark)").add_to(m)
+    folium.TileLayer("cartodbpositron", name="Map (Light)").add_to(m)
     folium.TileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
                      attr="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, \
                      IGN, IGP, UPR-EGP, and the GIS User Community", name="Satellite").add_to(m)
@@ -83,13 +86,13 @@ def hurricane_tracks(region, hur_dict, year):
             if speed >= 64 and speed <= 82:  # C1
                 dot_color = "#41C732"
             if speed >= 83 and speed <= 95:  # C2
-                dot_color = "#FFE775"
+                dot_color = "#FFD621"
             if speed >= 96 and speed <= 112:  # C3
-                dot_color = "#FFC140"
-            if speed >= 113 and speed <= 136:  # C4
                 dot_color = "#FF8F20"
-            if speed >= 137:  # C5
+            if speed >= 113 and speed <= 136:  # C4
                 dot_color = "#FF6060"
+            if speed >= 137:  # C5
+                dot_color = "#C464D9"
 
             # Pressure data was marked as "-999" or "0" when it wasn't available
             if pressure == -999 or pressure == 0:

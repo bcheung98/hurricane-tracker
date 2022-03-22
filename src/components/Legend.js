@@ -46,19 +46,19 @@ const Legend = () => {
                     <ListItemText primary={<Typography variant="body1">Category 1 (74–95 mph, 119–153 km/h)</Typography>} className="legend-text-sshws" />
                 </ListItem>
                 <ListItem>
-                    <Square className="legend-color" sx={{ color: "#FFE775" }} />
+                    <Square className="legend-color" sx={{ color: "#FFD621" }} />
                     <ListItemText primary={<Typography variant="body1">Category 2 (96–110 mph, 154–177 km/h)</Typography>} className="legend-text-sshws" />
                 </ListItem>
                 <ListItem>
-                    <Square className="legend-color" sx={{ color: "#FFC140" }} />
+                    <Square className="legend-color" sx={{ color: "#FF8F20" }} />
                     <ListItemText primary={<Typography variant="body1">Category 3 (111–129 mph, 178–208 km/h)</Typography>} className="legend-text-sshws" />
                 </ListItem>
                 <ListItem>
-                    <Square className="legend-color" sx={{ color: "#FF8F20" }} />
+                    <Square className="legend-color" sx={{ color: "#FF6060" }} />
                     <ListItemText primary={<Typography variant="body1">Category 4 (130–156 mph, 209–251 km/h)</Typography>} className="legend-text-sshws" />
                 </ListItem>
                 <ListItem>
-                    <Square className="legend-color" sx={{ color: "#FF6060" }} />
+                    <Square className="legend-color" sx={{ color: "#C464D9" }} />
                     <ListItemText primary={<Typography variant="body1">Category 5 (≥157 mph, ≥252 km/h)</Typography>} className="legend-text-sshws" />
                 </ListItem>
                 <ListItem>
